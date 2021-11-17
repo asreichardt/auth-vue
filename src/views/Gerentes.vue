@@ -16,21 +16,14 @@ export default {
   },
   data() {
     return {
-      gerentes: [
-        {
-          nome: 'Paulo',
-          agencia: 1000
-        },
-        {
-          nome: 'Guilherme',
-          agencia: 2000
-        },
-        {
-          nome: 'Ricardo',
-          agencia: 3000
-        }
-      ]
+      gerentes: [ ]
     }
+  },
+  mounted(){
+        //pegando os gerentes direto da api somente se tiver o token
+    this.$http.get('gerentes')
+        .then(response =>this.gerentes = response.data)
+        .catch(erro=> console.log(erro))
   }
 }
 </script>

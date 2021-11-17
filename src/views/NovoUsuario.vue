@@ -17,12 +17,13 @@
             </div>
             <br>
             <button class="btn btn-primary" type="submit">Salvar</button>
+            <router-link :to="{name:'login'}" > Já tem cadastro? Va para a página de login. </router-link>
+
         </form>
     </div>
 </template> 
 
 <script>
-import axios from 'axios'
 
 export default ({
     
@@ -39,9 +40,12 @@ export default ({
    methods : {
 
        enviaFormulario(){
-           axios
-                .post("http://localhost:8000/auth/register", this.usuario)
-                .then (resposta => console.log(resposta))
+           
+               this.$http.post("auth/register", this.usuario)
+                .then (resposta => { 
+                    console.log(resposta);
+                    this.$router.push( {name: 'login'} );
+                })
                 .catch (erro => console.log(erro));
        }
 

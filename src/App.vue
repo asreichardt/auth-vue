@@ -14,7 +14,15 @@
             <router-link to="/gerentes" class="nav-link">
               Gerentes
             </router-link>
-          </li>
+           </li>
+           <li class="nav-item">
+             <router-link to="/login" class="nav-link">
+              Login
+            </router-link>
+           </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" @click.prevent="efetuarLogout"> Logout </a>
+           </li>    
         </ul>
       </div>
     </nav>
@@ -33,3 +41,17 @@
   color: #000;
 }
 </style>
+<script>
+export default {
+  
+  methods:{
+
+      efetuarLogout(){
+
+                  localStorage.removeItem('token');
+                  this.$router.push({ name : 'home'})
+
+      }
+  }
+}
+</script>
