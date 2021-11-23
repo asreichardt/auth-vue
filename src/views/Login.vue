@@ -36,23 +36,9 @@ export default ({
    methods : {
 
        efetuarLogin(){
-                //chamando o axios pelo vue prototype
-                this.$http.post("auth/login", this.usuario)
-                .then (resposta => {
-
-                    console.log(resposta);
-                    //para salver o token na local storage (que está no response (ver no console))
-                    //  localStorage.setItem("token", resposta.data.access_token);
-                  //  localStorage.setItem('token', resposta.data.acess_token);
-                  //..salvando o stado com vuex
-                    this.$store.commit('DEFINIR_USUARIO_LOGADO',{
-                        token: resposta.data.access_token,
-                        usuario: resposta.data.user
-                    })
-                    this.$router.push( {name: 'gerentes'});
-                })
-                .catch (erro => console.log(erro));
-       }
+           this.$store.dispatch('efetuarLogin', this.usuario)
+                    .then( ()=>{ this.$router.push({name: 'gerentes'})  } )
+        }
 
    }
 

@@ -24,9 +24,10 @@ const mutations = {
     }
 }
 
-const actions = {   //atribuição via desestruturação
+const actions = {  
+    
+    //atribuição via desestruturação
     efetuarLogin( {commit}, usuario){
-
         return new Promise( (resolve, reject)=>{
                 http.post('auth/login',usuario)
                     .then( response=>{
