@@ -42,9 +42,13 @@ export default ({
 
                     console.log(resposta);
                     //para salver o token na local storage (que está no response (ver no console))
-
-                    localStorage.setItem("token", resposta.data.access_token);
+                    //  localStorage.setItem("token", resposta.data.access_token);
                   //  localStorage.setItem('token', resposta.data.acess_token);
+                  //..salvando o stado com vuex
+                    this.$store.commit('DEFINIR_USUARIO_LOGADO',{
+                        token: resposta.data.access_token,
+                        usuario: resposta.data.user
+                    })
                     this.$router.push( {name: 'gerentes'});
                 })
                 .catch (erro => console.log(erro));

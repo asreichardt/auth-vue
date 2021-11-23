@@ -1,5 +1,6 @@
 
 import axios from 'axios';
+import provedor from '../provedor';
 
 const http = axios.create({
     baseURL : 'http://localhost:8000/',
@@ -12,7 +13,9 @@ const http = axios.create({
 //para salvar o token e utiliza-lo para conceder acesso ou não a requisição
 
 http.interceptors.request.use( function(config){
-        const token = localStorage.getItem('token');
+      //  const token = localStorage.getItem('token');
+      //agora usando o vuex>
+        const token = provedor.state.token;
         
         if(token) { // se ele existe guarda
             config.headers.Authorization = `Bearer ${token}`;
