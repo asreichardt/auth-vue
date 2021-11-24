@@ -20,8 +20,13 @@ export default {
     }
   },
   mounted(){
-        //pegando os gerentes direto da api somente se tiver o token
-    this.$http.get('gerentes')
+       
+    ///   if(!this.$store.state.token){
+      //    this.$router.push({name:'login'})
+      // }
+
+       //pegando os gerentes direto da api somente se tiver o token
+         this.$http.get('gerentes')
         .then(response =>this.gerentes = response.data)
         .catch(erro=> console.log(erro))
   }

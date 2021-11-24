@@ -20,10 +20,15 @@ const mutations = {
     },
     DESLOGAR_USUARIO(state){
         state.token = null; 
-        state.usuario = {};
+        state.usuario = {}; 
     }
 }
 
+/**
+ * Quando implementamos a vuex, migramos a requisição HTTP para uma action e,
+ *  a partir dela, commitamos uma mutation para refletir a alteração
+ *  desejada no nosso state.
+ */
 const actions = {  
     
     //atribuição via desestruturação
