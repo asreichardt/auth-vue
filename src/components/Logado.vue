@@ -20,13 +20,8 @@
 </template>
 
 <script>
+import {logoutMixin} from '../mixins'
 export default {
-  methods: {       
-      efetuarLogout(){
-               //   localStorage.removeItem('token'); >VUEX
-               this.$store.commit('DESLOGAR_USUARIO');
-                  this.$router.push({ name : 'home'});
-      }
-  }
+  mixins: [logoutMixin]
 }
 </script>

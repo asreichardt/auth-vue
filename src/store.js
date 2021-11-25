@@ -1,11 +1,9 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
-import http from '../src/http/index'
-
+import http from './http/index'
 Vue.use(Vuex);
 
 //monitora o estado do token e do usuario
-
 const estado =  {
     token: null, 
     usuario:{}
@@ -49,7 +47,6 @@ const actions = {
         })
     }    
 }
-
 
 export default new Vuex.Store({ 
      state : estado, 
